@@ -21,6 +21,16 @@ gcloud config set project <PROJECT_ID>
 
 ## Usage
 
+### Customizing the training job
+
+Modify the [`create_job_spec()`](https://github.com/cloud-gtm/gcp-geap-flex-training-jobs/blob/main/launch_flex_train.py#L196-L235) function in [`launch_flex_train.py`](https://github.com/cloud-gtm/gcp-geap-flex-training-jobs/blob/main/launch_flex_train.py) to configure your actual workload. Things you might want to change:
+
+- **Container image:** Set your custom Docker image URI (`image_uri`).
+- **Entrypoint & command:** Change the execution command (`command`).
+- **Training script & args:** Pass your script path or training arguments (`args`).
+- **Environment variables:** Add any required variables or API keys (`env`).
+- **Replicas:** Adjust `replica_count` or worker pools for distributed training.
+
 ### Basic run
 
 Submit a training job across candidate regions and machine types:
